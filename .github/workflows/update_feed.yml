@@ -1,0 +1,27 @@
+name: Update Phish Feed
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # Every hour
+  workflow_dispatch:  
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: pip install requests
+
+    - name: Clean feed and push
+      run: python .github/scripts/clean_and_push.py
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
