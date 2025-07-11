@@ -36,4 +36,3 @@ except subprocess.CalledProcessError:
 
 remote_url = f"https://{GITHUB_TOKEN}@github.com/{GITHUB_USER}/{GITHUB_REPO}.git"
 subprocess.run(["git", "push", remote_url], check=True)
-
