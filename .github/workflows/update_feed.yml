@@ -21,7 +21,12 @@ jobs:
     - name: Install dependencies
       run: pip install requests
 
-    - name: Clean feed and push
+    - name: Set Git identity
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+    - name: Feed and push
       run: python .github/scripts/uniphish.py
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
