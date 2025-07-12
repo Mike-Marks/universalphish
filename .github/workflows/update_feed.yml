@@ -22,6 +22,6 @@ jobs:
       run: pip install requests
 
     - name: Clean feed and push
-      run: python .github/scripts/clean_and_push.py
+      run: python .github/scripts/uniphish.py
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
