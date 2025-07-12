@@ -3,6 +3,9 @@ import requests
 import subprocess
 from datetime import datetime, timezone
 
+subprocess.run(['git', 'config', '--global', 'user.email', 'github-actions[bot]@users.noreply.github.com'], check=True)
+subprocess.run(['git', 'config', '--global', 'user.name', 'github-actions[bot]'], check=True)
+
 CSV_URL = "http://data.phishtank.com/data/online-valid.csv"
 CSV_FILENAME = "online-valid.csv"
 COMMIT_MSG = f"Update PhishTank feed ({datetime.now(timezone.utc).isoformat()})"
